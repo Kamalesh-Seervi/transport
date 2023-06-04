@@ -59,8 +59,8 @@
   }
   
   main {
-    height: 100vh;
-    height: -webkit-fill-available;
+    height:100vh;
+    /* height: -webkit-fill-available; */
     max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
@@ -116,7 +116,7 @@
 
   .mapstyle{
 width: 100%;
-height: 500px;
+height: 398px;
 background-color: black;
 
   }
