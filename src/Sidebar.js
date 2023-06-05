@@ -2,6 +2,7 @@ import React from 'react'
 import Toast from './components/Toast';
 import Map from './components/Map';
 
+ 
 export default function Sidebar() {
 
 
@@ -43,9 +44,9 @@ export default function Sidebar() {
   <div className="col-auto">
     <input type="number" className="form-control" id="inputPassword2" placeholder="No of Drivers" style={{marginLeft:"10px"}}/>
   </div>
-  <div className="col-auto">
+  {/* <div className="col-auto">
     <Toast/>
-  </div>
+  </div> */}
 </form>
         </div>
       </li>
@@ -55,7 +56,7 @@ export default function Sidebar() {
         </button>
         <div className="collapse" id="dashboard-collapse">
           <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="/" className="link-body-emphasis d-inline-flex text-decoration-none rounded">BFF</a></li>
+           <button><li><a href="/" className="link-body-emphasis d-inline-flex text-decoration-none rounded">BFF</a></li> </button>
           </ul>
         </div>
       </li>
