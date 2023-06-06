@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import mapboxgl from "mapbox-gl";
-import MyMap, { Marker } from "react-map-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import React from 'react';
+import MyMap, { Marker } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-mapboxgl.accessToken =
-  "pk.eyJ1Ijoia2FteTAwNyIsImEiOiJjbGllZXllaGcwNHkyM2VzZXJmZjFiZWVmIn0.pwB-QPgLZ5nf2qtD2V19KQ";
+const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
-const Map = () => {
-  const [inputNumber, setInputNumber] = useState(5); // Default input number
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2FteTAwNyIsImEiOiJjbGllZXllaGcwNHkyM2VzZXJmZjFiZWVmIn0.pwB-QPgLZ5nf2qtD2V19KQ';
 
+const Map = ({ inputNumber }) => {
   const markerRadius = 5; // 5km
 
   const getRandomCoordinate = (center, radius) => {
@@ -23,35 +21,17 @@ const Map = () => {
     return [randomLng, randomLat];
   };
 
-  const handleInputChange = (e) => {
-    setInputNumber(parseInt(e.target.value));
-  };
-
-  // const handleZoomIn = () => {
-  //   mapRef.current.zoomIn();
-  // };
-
-  // const handleZoomOut = () => {
-  //   mapRef.current.zoomOut();
-  // };
-
   return (
     <div>
-      <input type="number" value={inputNumber} onChange={handleInputChange} />
-      {/* <div
-        ref={mapContainerRef}
-        style={{ width: "100%", height: "calc(80vh - 40px)" }} // Adjust the height as needed
-      /> */}
-
       <MyMap
         initialViewState={{
           longitude: 77.2167,
           latitude: 28.6448,
           zoom: 12,
         }}
-        style={{ width: "100%", height: "calc(80vh - 40px)" }} // Adjust the height as needed
+        style={{ width: '100%', height: 'calc(80vh - 40px)' }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
-        mapboxAccessToken="pk.eyJ1Ijoia2FteTAwNyIsImEiOiJjbGllZXllaGcwNHkyM2VzZXJmZjFiZWVmIn0.pwB-QPgLZ5nf2qtD2V19KQ"
+        mapboxApiAccessToken={mapboxgl.accessToken}
       >
         {[...Array(inputNumber || 0)].map((_, i) => {
           const [lon, lat] = getRandomCoordinate(
@@ -70,11 +50,6 @@ const Map = () => {
           );
         })}
       </MyMap>
-
-      {/* <div>
-        <button onClick={handleZoomIn}>Zoom In</button>
-        <button onClick={handleZoomOut}>Zoom Out</button>
-      </div> */}
     </div>
   );
 };
