@@ -1,7 +1,7 @@
 import React from 'react'
 import Toast from './components/Toast';
-import Map from './components/Map';
-
+import Map  from './components/Map';
+import MyMap, { Marker } from "react-map-gl";
  
 export default function Sidebar() {
 
@@ -42,6 +42,7 @@ export default function Sidebar() {
         <div className="collapse show" id="home-collapse">
         <form className="row g-3">
   <div className="col-auto">
+    
     <input type="number" className="form-control" id="inputPassword2" placeholder="No of Drivers" style={{marginLeft:"10px"}}/>
   </div>
   {/* <div className="col-auto">
