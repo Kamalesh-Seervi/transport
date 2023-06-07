@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Toast from './components/Toast';
 import Map from './components/Map';
+import Search from './components/Search';
 
 export default function Sidebar() {
   const [inputNumber, setInputNumber] = useState(5);
@@ -8,6 +9,7 @@ export default function Sidebar() {
   const handleInputChange = (e) => {
     setInputNumber(parseInt(e.target.value));
   };
+
 
   return (
     <>
@@ -101,18 +103,11 @@ export default function Sidebar() {
                       Orders
                     </button>
                     <div className="collapse" id="dashboard-collapse">
-                      <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <button>
-                          <li>
-                            <a
-                              href="/"
-                              className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                            >
-                              BFF
-                            </a>
-                          </li>
-                        </button>
-                      </ul>
+                    <form className="row g-3">
+                        <div className="col-auto">
+                          <Search/>
+                        </div>
+                      </form>
                     </div>
                   </li>
                   <li className="mb-1"></li>
@@ -124,6 +119,7 @@ export default function Sidebar() {
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 mt-5 border-bottom">
               <h1 className="h2">MAP</h1>
             </div>
+
             <div className="container">
               <Map inputNumber={inputNumber} />
             </div>
