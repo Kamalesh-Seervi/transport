@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Toast from './components/Toast';
 import Map from './components/Map';
-import Search from './components/Search';
+// import Search from './components/Search';
 
 export default function Sidebar() {
   const [inputNumber, setInputNumber] = useState(5);
@@ -11,6 +11,7 @@ export default function Sidebar() {
   };
 
 
+  
   return (
     <>
       <header
@@ -105,7 +106,7 @@ export default function Sidebar() {
                     <div className="collapse" id="dashboard-collapse">
                     <form className="row g-3">
                         <div className="col-auto">
-                          <Search/>
+                          {/* <Search/> */}
                         </div>
                       </form>
                     </div>
